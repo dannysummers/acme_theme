@@ -1,0 +1,59 @@
+// Article styles.
+
+@import "compass/reset";
+@import "base";
+
+// Mobile first.
+.node--article {
+	h1 {
+		font-size: $h1-font-size;
+		display: inline;
+	}
+	p {
+		margin: 10px 0;
+	}
+	.article--span {
+		&.article--mobile {
+			width: 100px;
+			display: block;
+			text-align: center;
+			font-size: $h2-font-size;
+			padding: 10px 0;
+			margin: 0 auto;
+			background-color: $RED;
+			color: $WHITE;
+  	}
+	}
+	.node--submitted {
+		width: 100%;
+    padding: 10px 0;
+    .article--span {
+    	border-bottom: 1px dotted $SHIP_GRAY;
+    	&.article--age {
+    		border-bottom: none;
+    		float: right;
+    		padding: 5px;
+		    margin: -5px 0 0 0;
+		    color: $WHITE;
+		    text-transform: uppercase;
+    		&.article--old {
+    			background-color: $RED;
+    		}
+    		&.article--new {
+    			background-color: $SPRING_GREENS;
+    		}
+    	}
+    }
+	}
+}
+
+// Desktop styles.
+@include bp("desktop") {
+	.node--article {
+		.article--span {
+			&.article--mobile {
+				display: none;
+			}
+		}
+	}
+}

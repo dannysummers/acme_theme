@@ -1,0 +1,104 @@
+//
+// Custom sass mixins
+//
+// To use a mixin in this file, add this line to the top of your .scss file:
+//   @import "base";
+// Then to use a mixin for a particular rule, add this inside the ruleset's
+// curly brackets:
+//   @include mix-in-name;
+
+//transform origin
+@mixin transform-origin($origin) {
+	moz-transform-origin: $origin;
+	-o-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
+// inline flex.
+@mixin inline-flex {
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
+	display: -moz-inline-flex;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+
+// element-invisible as defined by http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+@mixin element-invisible {
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+// Turns off the element-invisible effect.
+@mixin element-invisible-off {
+	position: static !important;
+	clip: auto;
+	height: auto;
+	width: auto;
+	overflow: auto;
+}
+
+// The word "Unpublished" displayed underneath unpublished nodes and comments.
+@mixin unpublished-div {
+	height: 0;
+	overflow: visible;
+	color: $ALTO;
+	font-size: 75px;
+	line-height: 1;
+	font-family: $font-narrow;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	word-wrap: break-word; // A very nice CSS3 property
+}
+
+//
+// RESPONSIVE MIXIN - Mobile First
+// Used: This is used whenever we need to do any responsive styling.
+//
+@mixin bp($point) {
+	// Mobile styles are default, so we don't define it.
+	@if $point == tablet {
+		@media only screen and (min-width: 530px) {
+			@content;
+		}
+	} @else if $point == desktop {
+		@media only screen and (min-width: 1000px) {
+			@content;
+		}
+	} @else if $point == large {
+		@media only screen and (min-width: 3000px) {
+			@content;
+		}
+	}
+}
+
+// Define a first-element mixin which removes the top margin from an elephant.
+// We use this when we want, for example, an H3 which is the first element in
+// a container to not have a huge gap between the top of the container and the
+// top of the heading.
+@mixin first-element() {
+	margin-top: 0;
+}
+
+
+// This clearfix mixin is "borrowed" from Compass' _clearfix.scss file.
+//
+// "This is an updated version of the PIE clearfix method that reduces the amount of CSS output.
+// If you need to support Firefox before 3.5 you need to use `legacy-pie-clearfix` instead.
+//
+// "Adapted from: [A new micro clearfix hack](http://nicolasgallagher.com/micro-clearfix-hack/)"
+//
+// Also @see "Bring in the clearfix from Bootstrap." at the top of this file.
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}

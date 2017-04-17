@@ -1,0 +1,28 @@
+// Navigation styles.
+
+@import "compass/reset";
+@import "base";
+
+#navigation {
+  ul {
+    padding: 10px 2px;
+    background-color: $SHIP_GRAY;
+    li {
+      padding: 10px;
+      cursor: pointer;
+      &:hover {
+        background-color: lighten($SHIP_GRAY, 10%);
+      }
+      &.first {
+        background-color: $primary;
+        &:hover {
+          background-color: darken($primary, 10%);
+        }
+      }
+      a {
+        text-decoration: none;
+        color: $WHITE;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+// Some generic bits and bobs.
+
+@import "compass/reset";
+@import "base";
+
+body {
+	font-family: $arial;
+	font-size: $base-font-size;
+	color: $BLACK;
+}
