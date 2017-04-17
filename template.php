@@ -231,8 +231,7 @@ function acme_theme_preprocess_node(&$variables) {
     // Add variable for last changed time.
     $changed = $variables['changed'];
     // Check if article is older than X days.
-    //if ($changed >= strtotime('-7 days')) {
-    if ($changed >= strtotime('-1 day')) {
+    if ($changed >= strtotime('-7 day')) {
       // Pass variables to the template.
       $variables['oldness'] = 'new';
       $variables['oldnessClass'] = 'article--new';
